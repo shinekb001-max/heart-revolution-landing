@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="420" height="480" viewBox="0 0 420 480" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    /* ══════════════════════════════
+       PHASE TIMING (총 20s 루프)
+    ══════════════════════════════ */
+
+    /* 01 BREATH */
+    #breath-glow {
+      transform-origin: 210px 185px;
+      animation: breathAnim 20s ease-in-out infinite;
+    }
+    @keyframes breathAnim {
+      0%   { opacity: 0; transform: scale(0.1); }
+      3%   { opacity: 1; transform: scale(1); }
+      10%  { opacity: 1; transform: scale(1.05); }
+      15%  { opacity: 0.3; transform: scale(0.4); }
+      100% { opacity: 0.3; transform: scale(0.4); }
+    }
+
+    /* 02 RADIANCE */
+    #radiance-burst {
+      transform-origin: 210px 185px;
+      animation: radianceAnim 20s ease-in-out infinite;
+    }
+    @keyframes radianceAnim {
+      0%   { opacity: 0; transform: scale(0); }
+      10%  { opacity: 0; transform: scale(0); }
+      13%  { opacity: 1; transform: scale(1); }
+      20%  { opacity: 0.9; transform: scale(1); }
+      25%  { opacity: 0; transform: scale(1.3); }
+      100% { opacity: 0; }
+    }
+
+    #radiance-star {
+      animation: starAnim 20s ease-in-out infinite;
+      transform-origin: 210px 185px;
+    }
+    @keyframes starAnim {
+      0%   { opacity: 0; }
+      10%  { opacity: 0; }
+      13%  { opacity: 1; }
+      22%  { opacity: 1; }
+      28%  { opacity: 0; }
+      65%  { opacity: 0; }
+      70%  { opacity: 1; }
+      100% { opacity: 1; }
+    }
+
+    /* 03 HEART FORMS */
+    #heart-outline {
+      stroke-dasharray: 800;
+      stroke-dashoffset: 800;
+      animation: heartDrawAnim 20s ease-in-out infinite;
+    }
+    @keyframes heartDrawAnim {
+      0%   { stroke-dashoffset: 800; opacity: 0; }
+      20%  { stroke-dashoffset: 800; opacity: 0; }
+      23%  { opacity: 1; }
+      35%  { stroke-dashoffset: 0; opacity: 1; }
+      100% { stroke-dashoffset: 0; opacity: 1; }
+    }
+    #heart-fill { animation: heartFillAnim 20s ease-in-out infinite; }
+    @keyframes heartFillAnim {
+      0%   { opacity: 0; }
+      30%  { opacity: 0; }
+      38%  { opacity: 1; }
+      100% { opacity: 1; }
+    }
+
+    /* 04 RESONANCE */
+    #wave-outer { transform-origin: 210px 185px; animation: waveOuterAnim 20s ease-in-out infinite; }
+    #wave-mid { transform-origin: 210px 185px; animation: waveMidAnim 20s ease-in-out infinite; }
+    #wave-inner { transform-origin: 210px 185px; animation: waveInnerAnim 20s ease-in-out infinite; }
+    @keyframes waveOuterAnim {
+      0%, 35% { opacity: 0; transform: scale(0.7); }
+      42% { opacity: 0.22; transform: scale(1); }
+      70% { opacity: 0.30; transform: scale(1.03); }
+      85%, 100% { opacity: 0.22; transform: scale(1); }
+    }
+    @keyframes waveMidAnim {
+      0%, 38% { opacity: 0; transform: scale(0.7); }
+      45% { opacity: 0.40; transform: scale(1); }
+      70% { opacity: 0.50; transform: scale(1.03); }
+      85%, 100% { opacity: 0.40; transform: scale(1); }
+    }
+    @keyframes waveInnerAnim {
+      0%, 41% { opacity: 0; transform: scale(0.7); }
+      48% { opacity: 0.58; transform: scale(1); }
+      70% { opacity: 0.70; transform: scale(1.03); }
+      85%, 100% { opacity: 0.58; transform: scale(1); }
+    }
+
+    /* 05 EXPANSION */
+    .petal { transform-box: fill-box; transform-origin: center; animation: petalAnim 20s ease-in-out infinite; }
+    .p1 { animation-delay: 0s; } .p2 { animation-delay: 0.1s; } .p3 { animation-delay: 0.2s; }
+    .p4 { animation-delay: 0.3s; } .p5 { animation-delay: 0.4s; } .p6 { animation-delay: 0.5s; }
+    @keyframes petalAnim {
+      0%, 50% { opacity: 0; transform: scale(0); }
+      56% { opacity: 0.85; transform: scale(1.15); }
+      62% { opacity: 0.75; transform: scale(1); }
+      75% { opacity: 0.85; transform: scale(1.08); }
+      88%, 100% { opacity: 0.75; transform: scale(1); }
+    }
+
+    /* 06 STILLNESS */
+    #rays { transform-origin: 210px 185px; animation: raysAnim 20s ease-in-out infinite; }
+    @keyframes raysAnim {
+      0%, 62% { opacity: 0; }
+      68% { opacity: 1; }
+      78% { opacity: 0.7; }
+      88% { opacity: 1; }
+      100% { opacity: 1; }
+    }
+    #seed-main { transform-origin: 210px 185px; animation: seedMainAnim 20s ease-in-out infinite; }
+    @keyframes seedMainAnim {
+      0%, 25% { opacity: 0; transform: scale(0); }
+      30% { opacity: 1; transform: scale(1); }
+      76% { opacity: 1; transform: scale(1.12); }
+      84%, 100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* WORDMARK */
+    #wordmark { animation: wordmarkAnim 20s ease-in-out infinite; }
+    @keyframes wordmarkAnim {
+      0%, 75% { opacity: 0; transform: translateY(16px); }
+      83%, 100% { opacity: 1; transform: translateY(0); }
+    }
+    #loop-indicator { animation: loopAnim 20s ease-in-out infinite; }
+    @keyframes loopAnim {
+      0%, 90% { opacity: 0; }
+      96%, 100% { opacity: 1; }
+    }
+  </style>
+
+  <defs>
+    <radialGradient id="bg-purple" cx="50%" cy="44%" r="50%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bg-gold" cx="50%" cy="44%" r="40%">
+      <stop offset="0%" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#fbbf24" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="hf" cx="50%" cy="36%" r="65%">
+      <stop offset="0%" stop-color="#ddd6fe" stop-opacity="0.70"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.10"/>
+    </radialGradient>
+    <radialGradient id="sg" cx="36%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#fef9c3"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </radialGradient>
+    <radialGradient id="sg2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.50"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pg" cx="38%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#e9d5ff"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </radialGradient>
+    <radialGradient id="pg2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#c4b5fd" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="fglow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="fsoft" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="fpetal" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="fbg" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#9b8ecf" opacity="0.50"/>
+    </marker>
+  </defs>
+
+  <ellipse cx="210" cy="185" rx="155" ry="148" fill="url(#bg-purple)" filter="url(#fbg)"/>
+
+  <g id="breath-glow" filter="url(#fsoft)">
+    <circle cx="210" cy="185" r="52" fill="#a78bfa" opacity="0.28"/>
+    <circle cx="210" cy="185" r="28" fill="#c4b5fd" opacity="0.45"/>
+    <circle cx="210" cy="185" r="10" fill="#ede9fe" opacity="0.90"/>
+    <circle cx="210" cy="185" r="4"  fill="white" opacity="1"/>
+  </g>
+
+  <g id="radiance-burst" filter="url(#fsoft)">
+    <circle cx="210" cy="185" r="90" fill="url(#bg-gold)"/>
+    <circle cx="210" cy="185" r="50" fill="#fde68a" opacity="0.45"/>
+    <circle cx="210" cy="185" r="22" fill="#fef9c3" opacity="0.85"/>
+  </g>
+
+  <g id="radiance-star" filter="url(#fglow)">
+    <line x1="210" y1="115" x2="210" y2="255" stroke="#fef9c3" stroke-width="1.8" opacity="0.95"/>
+    <line x1="140" y1="185" x2="280" y2="185" stroke="#fef9c3" stroke-width="1.8" opacity="0.95"/>
+    <line x1="161" y1="136" x2="259" y2="234" stroke="#fef9c3" stroke-width="1.1" opacity="0.75"/>
+    <line x1="259" y1="136" x2="161" y2="234" stroke="#fef9c3" stroke-width="1.1" opacity="0.75"/>
+    <circle cx="210" cy="185" r="6" fill="#fef9c3" opacity="1"/>
+    <circle cx="210" cy="185" r="2.5" fill="white" opacity="1"/>
+  </g>
+
+  <path id="heart-outline" d="M210,262 C178,238 130,218 130,183 C130,158 148,142 168,145 C182,147 195,158 210,172 C225,158 238,147 252,145 C272,142 290,158 290,183 C290,218 242,238 210,262Z" fill="none" stroke="#5b21b6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path id="heart-fill" d="M210,262 C178,238 130,218 130,183 C130,158 148,142 168,145 C182,147 195,158 210,172 C225,158 238,147 252,145 C272,142 290,158 290,183 C290,218 242,238 210,262Z" fill="url(#hf)"/>
+
+  <path id="wave-outer" d="M210,288 C166,260 102,234 102,190 C102,158 124,136 150,140 C170,143 188,157 210,175 C232,157 250,143 270,140 C296,136 318,158 318,190 C318,234 254,260 210,288Z" fill="none" stroke="#2dd4bf" stroke-width="0.9"/>
+  <path id="wave-mid" d="M210,278 C170,252 112,228 112,188 C112,159 132,139 156,142 C175,145 191,158 210,174 C229,158 245,145 264,142 C288,139 308,159 308,188 C308,228 250,252 210,278Z" fill="none" stroke="#14b8a6" stroke-width="1.2"/>
+  <path id="wave-inner" d="M210,270 C174,246 122,224 122,186 C122,160 140,141 162,144 C180,147 194,159 210,174 C226,159 240,147 258,144 C280,141 298,160 298,186 C298,224 246,246 210,270Z" fill="none" stroke="#2dd4bf" stroke-width="1.5"/>
+
+  <circle class="petal p1" cx="210" cy="90"  r="14" fill="url(#pg2)" filter="url(#fpetal)"/><circle class="petal p2" cx="292" cy="138" r="14" fill="url(#pg2)" filter="url(#fpetal)"/><circle class="petal p3" cx="292" cy="232" r="14" fill="url(#pg2)" filter="url(#fpetal)"/><circle class="petal p4" cx="210" cy="280" r="14" fill="url(#pg2)" filter="url(#fpetal)"/><circle class="petal p5" cx="128" cy="232" r="14" fill="url(#pg2)" filter="url(#fpetal)"/><circle class="petal p6" cx="128" cy="138" r="14" fill="url(#pg2)" filter="url(#fpetal)"/>
+  <circle class="petal p1" cx="210" cy="90"  r="9" fill="url(#pg)" stroke="#c4b5fd" stroke-width="1.0"/><circle class="petal p2" cx="292" cy="138" r="9" fill="url(#pg)" stroke="#c4b5fd" stroke-width="1.0"/><circle class="petal p3" cx="292" cy="232" r="9" fill="url(#pg)" stroke="#c4b5fd" stroke-width="1.0"/><circle class="petal p4" cx="210" cy="280" r="9" fill="url(#pg)" stroke="#c4b5fd" stroke-width="1.0"/><circle class="petal p5" cx="128" cy="232" r="9" fill="url(#pg)" stroke="#c4b5fd" stroke-width="1.0"/><circle class="petal p6" cx="128" cy="138" r="9" fill="url(#pg)" stroke="#c4b5fd" stroke-width="1.0"/>
+
+  <g id="rays" filter="url(#fglow)">
+    <line x1="210" y1="185" x2="210" y2="162" stroke="#f59e0b" stroke-width="1.3"/><line x1="210" y1="185" x2="210" y2="208" stroke="#f59e0b" stroke-width="1.3"/><line x1="210" y1="185" x2="187" y2="185" stroke="#f59e0b" stroke-width="1.3"/><line x1="210" y1="185" x2="233" y2="185" stroke="#f59e0b" stroke-width="1.3"/><line x1="210" y1="185" x2="194" y2="169" stroke="#f59e0b" stroke-width="0.9"/><line x1="210" y1="185" x2="226" y2="169" stroke="#f59e0b" stroke-width="0.9"/><line x1="210" y1="185" x2="194" y2="201" stroke="#f59e0b" stroke-width="0.9"/><line x1="210" y1="185" x2="226" y2="201" stroke="#f59e0b" stroke-width="0.9"/>
+  </g>
+
+  <g id="seed-main" filter="url(#fglow)">
+    <circle cx="210" cy="185" r="13" fill="url(#sg2)"/>
+    <circle cx="210" cy="185" r="7"  fill="url(#sg)"/>
+    <circle cx="210" cy="185" r="2.5" fill="white" opacity="1"/>
+  </g>
+
+  <g id="wordmark">
+    <line x1="62" y1="312" x2="358" y2="312" stroke="#7c3aed" stroke-width="0.6" opacity="0.45"/>
+    <text x="210" y="348" text-anchor="middle" font-family="Georgia, serif" font-size="40" font-weight="500" letter-spacing="9" fill="#2e1065">HOGIS</text>
+    <line x1="62" y1="362" x2="152" y2="362" stroke="#7c3aed" stroke-width="0.6" opacity="0.40"/>
+    <text x="210" y="366" text-anchor="middle" font-family="Georgia, serif" font-size="10.5" letter-spacing="6" fill="#5b21b6">HEART MEDITATION</text>
+    <line x1="268" y1="362" x2="358" y2="362" stroke="#7c3aed" stroke-width="0.6" opacity="0.40"/>
+    <text x="210" y="393" text-anchor="middle" font-family="sans-serif" font-size="13.5" letter-spacing="9" fill="#6d28d9">가슴명상</text>
+    <text x="210" y="418" text-anchor="middle" font-family="Georgia, serif" font-size="9" letter-spacing="3" fill="#0d9488" opacity="0.80">open · resonate · awaken</text>
+    <line x1="115" y1="428" x2="305" y2="428" stroke="#7c3aed" stroke-width="0.4" opacity="0.28"/>
+    <g id="loop-indicator">
+      <text x="210" y="448" text-anchor="middle" font-family="Georgia, serif" font-size="9" letter-spacing="4" fill="#9b8ecf" opacity="0.65">L O O P</text>
+      <path d="M155,454 Q210,465 265,454" fill="none" stroke="#9b8ecf" stroke-width="0.8" opacity="0.50" marker-end="url(#arrow)"/>
+    </g>
+  </g>
+</svg>
